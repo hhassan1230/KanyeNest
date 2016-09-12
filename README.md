@@ -1,10 +1,10 @@
 # KanyeNest
 
-Check it out at http://kanyenest.com/_
+Check it out at http://kanyenest.com/ <br />
 
-Team:_
-Malik - http://www.marmight.com/_
-Hessvacio - http://hessvacio.com/_
-Sarah Jennings - http://www.sarahjenningsdesign.com/_
-Emily Ludolph - http://blog.ted.com/author/emludolph/_
-David Dworin - http://www.dworin.com/_
+Team: <br />
+Malik - http://www.marmight.com/ <br />
+Hessvacio - http://hessvacio.com/ <br />
+Sarah Jennings - http://www.sarahjenningsdesign.com/ <br />
+Emily Ludolph - http://blog.ted.com/author/emludolph/ <br />
+David Dworin - http://www.dworin.com/ <br />
