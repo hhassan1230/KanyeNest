@@ -1,0 +1,518 @@
+body { 
+  background-color: #5A3382;
+  margin: 0px auto;
+  text-align: center;
+  color: #000;
+  font-family: 'Press Start 2P', cursive;
+  font-size: .66em;
+}
+
+#phonebg{
+	display: block;
+   position: relative;
+	width:432px;
+	height:885px;
+	background-image: url("../images/iphone.png");
+	background-repeat: no-repeat;
+    background-position: right top;
+	
+   margin: 0px auto;
+ }
+
+#screen {
+ 
+  display: block;
+  position: absolute;
+  width: 375px;
+  height: 667px;
+  color: white;
+  background-color: #9E91B1;
+  z-index: 2;
+ top:109px;
+ left:29px;
+  text-align: center;
+  -webkit-border-radius: 1px;
+  border-radius: 1px;
+  -webkit-box-shadow: 0 0 0 3px #111;
+  box-shadow: 0 0 0 3px #111;
+}
+
+
+
+
+#kanyegamescreen {
+  background-color: #9E91B1;
+}
+
+#logoheader {
+  color: #000;
+  display: block;
+  height: 50px;
+  width: 100%;
+  background-color: #9E91B1;
+  font-size: large;
+}
+#geniusbarholder{
+	position:absolute;
+	display:block;
+	top:8px;
+	left:185px;
+	}
+.geniusbars {
+	position:absolute;
+	display:block;
+	top:0px;
+	left:0px;
+	}
+	.bar0{
+	z-index:100;	
+		}
+	.bar1{
+	z-index:101;	
+		}
+	.bar2{
+	z-index:102;	
+		}	
+	.bar3{
+	z-index:103;	
+		}
+	.bar4{
+	z-index:104;	
+		}	
+	.bar5{
+	z-index:105;	
+		}	
+	.geniusoff{
+		display:none;
+		}		
+/************************ KANYE BODY STYLES *****************/
+#kanye {
+  color: #000;
+  display: block;
+  width: 100%;
+  height: 617px;
+  background-color: #9E91B1;
+  z-index: 500;
+  position: absolute;
+  margin-top: 50p;
+}
+
+#nest{
+	display:block;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:100;
+	}
+#kanyebody{
+	display:block;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:99;
+	}
+#kanyebounce{
+	display:block;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:100;
+	}
+#kanyegrammy{
+	display:block;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:105;
+	}		
+#kanyetweet{
+	display:block;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:110;
+	}	
+.tweetanim{display:block;
+	position:absolute;
+	top:0px;
+	left:0px;}
+.grammy{display:block;
+	position:absolute;
+	top:0px;
+	left:0px;}		
+.bodyoff{
+	display:none;
+	}	
+	
+#kanyehead{
+	display:block;
+	position:absolute;
+	top:-150px;
+	left:23px;
+	z-index:101;
+	
+	}
+
+
+#babyheads{
+	display:block;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index: 150;
+	}	
+.babyhead{
+	display:block;
+	position:absolute;
+	top:0px;
+	left:0px;
+	}
+#childheads{
+	display:block;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index: 1560;
+	}	
+.childhead{
+	display:block;
+	position:absolute;
+	top:0px;
+	left:0px;
+	}
+
+#adultheads{
+	display:block;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index: 160;
+	}	
+.adulthead{
+	display:block;
+	position:absolute;
+	top:0px;
+	left:0px;
+	}	
+#godheads{
+	display:block;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index: 170;
+	}	
+.godhead{
+	display:block;
+	position:absolute;
+	top:0px;
+	left:0px;
+	}	
+.headoff{
+	display:none;	
+		}
+
+
+	
+#kanyewings{
+	display:block;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:80;
+	}
+	
+/****************************  OVERLAYS  **************************/
+#kanyeoverlay {
+  display: block;
+  position: absolute;
+  width: 375px;
+  height: 467px;
+  z-index: 2000;
+}
+
+.speechbubble {
+  position: absolute;
+  width: 315px;
+  height: 85px;
+  background-color: #fff;
+  color:#000;
+  top: 45px;
+  left: 37px;
+  padding: 5px;
+  text-align: center;
+  background-color: #fff;
+  border: 2px solid #666;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-box-shadow: 2px 2px 4px #888;
+  -moz-box-shadow: 2px 2px 4px #888;
+  box-shadow: 2px 2px 4px #888;
+}
+
+.speechbubble:after {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 150px;
+  top: 85px;
+  border: 15px solid;
+  border-color: #fff transparent transparent #fff;
+}
+
+.bubbleoff{
+	display:none;
+	}
+	
+#allthehaters {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 467px;
+  z-index: 200;
+  top: 525px;
+}
+@keyframes hateranimate{
+   	0%   {left:-170px; top:237px;}
+    50%  {left:-190px; top:257px;}
+    100% {left:-170px; top:237px;}
+}
+.hater1 {
+  display:block;	
+  position: absolute;
+  top:-170px;
+  left:237px;
+
+}
+.hater2 {
+  display:block;
+  position: absolute; 	
+  top:-255px;
+  left:237px;
+}
+.hater3 {
+  display:block;
+  position: absolute; 	
+  top:-340px;
+  left:237px;
+}
+
+.hater4 {
+  display:block;
+  position: absolute; 	
+  top:-350px;
+  left:-10px;
+  transform:scaleX(-1)
+}
+.hater5 {
+  display:block;
+  position: absolute; 	
+  top:-265px;
+  left:-10px;
+  transform:scaleX(-1)
+} 
+.hater6 {
+  display:block;
+  position: absolute; 	
+  top:-175px;
+  left:-10px;
+  transform:scaleX(-1)
+}
+.hateroff{
+	display:none;
+	}
+
+/********************* TOOLBAR *****************/
+#toolbar {
+	display: block;
+  position: absolute;
+  color: #fff;
+  width: 375px;
+  height: 100px;
+  top: 441px;
+  left: 0px;
+  z-index:1332;
+}
+
+
+
+#egobutton {
+  display: block;
+  position: absolute;
+  width: 90px;
+  height: 60px;
+  
+  top:77px;
+  left: 21px;
+}
+
+#creativitybutton {
+  display: block;
+  position: absolute;
+  width: 90px;
+  height: 60px;
+  left: 143px;
+  top:48px;
+}
+
+#disciplinebutton {
+  display: block;
+  position: absolute;
+  width: 90px;
+  height: 60px;
+  top:75px;
+  left: 263px;
+}
+
+#geniusbarsection {
+  width: 50px;
+  height: 500px;
+  display:none;
+}
+
+.geniusbar {
+  width: 20px;
+  height: 460px;
+  background-color: #9E91B1;
+  left: 13px;
+  position: absolute;
+  border-radius:5px;
+}
+#actionoverlays{
+	display:none;
+	position:absolute;
+	width:100%;
+	height:100%;
+	z-index:5000;
+	}
+#overlaygreyout{
+	display:block;
+	position:absolute;
+	width:100%;
+	height:100%;
+	background-color:#424242;
+	opacity: 0.8; 
+	z-index:10;
+	}	
+#overlaybox{
+	display:block;
+	position:absolute;
+	width: 325px;
+	height: 615px;
+	border:1px solid #fff;
+	background-color: #9e91b1;
+	top:25px;
+	left:25px;
+	z-index:100;
+	}
+.overlayon{
+	display:block;
+	}
+#overlaytext{
+	width:325px;
+	display:block;
+	position:absolute;
+	width: 325px;
+	height: 615px;
+	font-size:18px;
+	pointer-events:none;
+	}			
+	
+#close{
+	 width: 300px;
+    height: 40px;
+    position: absolute;
+    display: block;
+    top: 450px;
+    left: 5px;
+	border:1px solid #fff;
+	border-radius: 10px;
+	background-color: #5A3382;
+	font-size:18px;
+	padding:10px 5px;
+	}
+	
+.modalimage{
+	position:absolute;
+	display:block;
+	top:-50px;
+	left:0px;
+	}	
+	
+	
+#startscreens{
+	display:block;
+	position:absolute;
+	width:100%;
+	height:100%;
+	z-index:10000;
+	}
+#start1{
+	display:block;
+	position:absolute;
+	top:0px;
+	left:0px;
+	}	
+#start2{
+	display:block;
+	position:absolute;
+	top:0px;
+	left:0px;
+	}
+#start3{
+	display:block;
+	position:absolute;
+	top:0px;
+	left:0px;
+	}	
+#start4{
+	display:block;
+	position:absolute;
+	top:0px;
+	left:0px;
+	}					
+.startoff{
+	display:none;
+	}	
+	
+
+#fixed-div2 {
+    position: fixed;
+    bottom: 1em;
+    left: 1em;
+    background-color: black;
+    z-index: 5;
+    width: 300px;
+    height: 300px;
+}
+
+#fixed-div {
+    position: fixed;
+    top: 1em;
+    left: 1em;
+    background-color: black;
+    z-index: 5;
+    width: 300px;
+    height: 300px;
+}
+
+#fixed-div3 {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    background-color: black;
+    z-index: 5;
+    width: 300px;
+    height: 300px;
+}
+
+#fixed-div4 {
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    background-color: black;
+    z-index: 5;
+    width: 300px;
+    height: 300px;
+}
