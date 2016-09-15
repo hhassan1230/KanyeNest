@@ -1,15 +1,60 @@
 $( document ).ready(function() {
+	var queryString = function () {
+	  // This function is anonymous, is executed immediately and 
+	  // the return value is assigned to QueryString!
+	  var query_string = {};
+	  var query = window.location.search.substring(1);
+	  var vars = query.split("&");
+	  for (var i=0;i<vars.length;i++) {
+	    var pair = vars[i].split("=");
+	        // If first entry with this name
+	    if (typeof query_string[pair[0]] === "undefined") {
+	      query_string[pair[0]] = decodeURIComponent(pair[1]);
+	        // If second entry with this name
+	    } else if (typeof query_string[pair[0]] === "string") {
+	      var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
+	      query_string[pair[0]] = arr;
+	        // If third or later entry with this name
+	    } else {
+	      query_string[pair[0]].push(decodeURIComponent(pair[1]));
+	    }
+	  } 
+	  return query_string;
+	}();
+	debugger;
 	var randomTweet = function(){
   	  var randSeedNum = Math.floor(Math.random() * (randomtweets.length - 0 + 1)) + 0;
 	  	$( ".speechbubble" ).html(randomtweets[randSeedNum]);
   };
+  var endGame = function() {
+			$("#startscreens").show();
+	  	$("#startscreens").css('display', 'block');
+	  	
+			$("#start1").hide();
+			$("#start2").hide();
+			$("#start3").hide();
+			$("#start4").hide();
+
+			// finalframe
+			$("#finalframe").removeClass('startoff');
+			$("#finalframe").css('display', 'block');
+			$("#finalframe").show();  
+	};
   
 	var randomtweets = ['I feel we are so stuck in the booth Wow this is the God.',
                 'Be real… Don’t try to use the debt tried to use me for anything till Monday.',
                 'I feel the Grammy awarding system is designed for YEEZY Season 1.',
                 'I feel we are so stuck in the booth Wow this is the God.',
                 'This is the most powerful messenger of the life.',
-                'and I think the Grammys culturally relevant again.'];
+                'and I think the Grammys culturally relevant again.',
+                'you maybe talented, but you\'re not kanye west',
+                'Sometimes I get emotional over fonts',
+                'My favorite unit of measurement is \'a shitload\'',
+                'Have you ever thought you were in love with someone but then realized you were just staring in the mirror for 20 minutes?',
+                'I always misspell genius SMH! The irony!',
+                'Dear Santa Claus, tell me what gift would you like this year.'
+                ];
+                // I am ready to get out of my own way. The ego is overdone... it's like hoddies
 		$("#startscreens").removeClass('startoff');
 		$("#start1").removeClass('startoff');
 		$("#start2").removeClass('startoff');
@@ -48,38 +93,36 @@ $( document ).ready(function() {
 
 	  $( ".scriptButton1" ).click(function() {
 	  	// shrink head
-	  	shrinkHead();
-	  	setTimeout(function(){
-	  		shrinkHead();
-	  	}, 1000);
+	  	if (queryString.demo) {
+		  	shrinkHead();
+		  	setTimeout(function(){
+		  		shrinkHead();
+		  	}, 1000);
+	  	}
 
 	  });
 	  $( ".scriptButton2" ).click(function() {
 	  	// hate
-	  	var interval;
-	  	interval = setInterval(makehater, 1500);
-	  	setTimeout(function(){
-	  		clearInterval(interval)
-	  	}, 10000);
-
+	  	if (queryString.demo) {
+		  	var interval;
+		  	interval = setInterval(makehater, 1500);
+		  	setTimeout(function(){
+		  		clearInterval(interval)
+		  	}, 10000);
+	  	}
 	  });
 	  $( ".scriptButton3" ).click(function() {
-  	  var seednum = Math.floor(Math.random() * (randomtweets.length - 0 + 1)) + 0;
-	  	$( ".speechbubble" ).html(randomtweets[seednum]);
+	  	// random tweet
+	  	if (queryString.demo) {
+	  	  var seednum = Math.floor(Math.random() * (randomtweets.length - 0 + 1)) + 0;
+		  	$( ".speechbubble" ).html(randomtweets[seednum]);
+	  	}
 	  });
 	  $( ".scriptButton4" ).click(function() {
 	  	// end
-	  	$("#startscreens").show();
-	  	$("#startscreens").css('display', 'block');
-	  	
-			$("#start1").hide();
-			$("#start2").hide();
-			$("#start3").hide();
-			$("#start4").hide();
-			// finalframe
-			$("#finalframe").removeClass('startoff');
-			$("#finalframe").css('display', 'block');
-			$("#finalframe").show();
+	  	if (queryString.demo) {
+		  	endGame();
+	  	}
 	  });
 
 	  	var randomTweetInterval;

@@ -156,6 +156,7 @@ function evolveKanye(){
 
 function growHead(){
     //Grow the head 
+        // debugger;
     $('#kanyehead').children().not('.headoff').children().not('.headoff').each(function(){
         $(this).addClass('headoff');
         $(this).next().removeClass('headoff');
