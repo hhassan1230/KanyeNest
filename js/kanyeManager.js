@@ -1,195 +1,116 @@
-  var actions = {
-     award: {
-       ego: 30,
-       discipline: -10
-     },
-     tour: {
-       creativity: 30,
-       discipline: -10
-     },
-     studio: {
-        creativity: 10
-     },
-     tweet: {
-       ego: 10,
-       discipline: -5
-     }
-  }; 
-  var egoArray = ['tweet', 'award'];
-  var creativityArray = ['studio', 'tour'];
-  var disciplineArray = ['discipline'];
-  var evolution = ["child", "teen", "adult", "god", "god", "god", "god", "god"]; 
-   // this.generateFood = this.generateFood.bind(this);
-  var state = {
-     food: '',
-     ego: 100,
-     creativity: 100,
-     discipline: 50,
-     maxAge: 100,
-     age: 0,
-     evolution: 'child',
-     ageDivider: 0,
-     preEvo: 'child'
-  };
-   
- var init = function(){
-  window.setInterval(function () {
-    this.setTime();
-  }.bind(this), 1000);
- };
-
-  
-  var timeManager = function(){
-    var durationOfStage = state.maxAge / 4;  
-  };
-
-  var handleRandom = function (random){
-    var randomElement = 'Oprah';
-    if (random === 'ego') {
-      var arraylength = egoArray.length;
-      randomElement = egoArray[Math.floor((Math.random() * arraylength) + 0)];
-    } else if (random === 'creativity') {
-      var arraylength = creativityArray.length;
-      randomElement = creativityArray[Math.floor((Math.random() * arraylength) + 0)];
+$( document ).ready(function() {
+  var queryString = function () {
+    // This function is anonymous, is executed immediately and 
+    // the return value is assigned to QueryString!
+    var query_string = {};
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i=0;i<vars.length;i++) {
+      var pair = vars[i].split("=");
+          // If first entry with this name
+      if (typeof query_string[pair[0]] === "undefined") {
+        query_string[pair[0]] = decodeURIComponent(pair[1]);
+          // If second entry with this name
+      } else if (typeof query_string[pair[0]] === "string") {
+        var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
+        query_string[pair[0]] = arr;
+          // If third or later entry with this name
+      } else {
+        query_string[pair[0]].push(decodeURIComponent(pair[1]));
+      }
     } 
-    return randomElement;
-  };
-   
-  var generateFood = function(type) {
-    this.feedKanye(type, handleRandom(type));    
-   };
-
-    var feedKanye = function(feedType, food){
-      if (typeof feedType == 'undefined'){
-        return;
-      };
-     
-     if (food === 'Oprah') {
-      var currentDisciplinePoints = state.state.discipline + 25;
-      var currentEgoPoints = state.state.ego - 10;
-      this.state.discipline = currentDisciplinePoints;
-      this.state.ego = currentEgoPoints;
-     } else {
-      this.state.food = food;
-
-      var currentAction = actions[food];
-      
-      for (var action in currentAction) {   
-        var currentActionPoint = this.state[action] + currentAction[action];
-        this.state[action] = currentActionPoint;
-      };
-    }
-   };
-  
-  var egoDecreaser = function(){
-     var newEgo = this.state.ego -= 1;
-     if (newEgo > 100) {
-       // Over 100 accend to stars
-     };
-     
-     // if he's at 50 ego
-     if (newEgo === 50) {
-       // send text notifation message
-     };
-     if (newEgo <= 0) {
-       // Add Death Here
-       newEgo = 0;
-     };
-     this.state.ego = newEgo;
-   };
-   
-   var updateCurrentAge = function(){
-     var newAge = this.state.age += 1;
-     this.state.age = newAge;
-   };
-   
-  var evole = function(evolutionState){
-    var string = 'I have evoled into ' + evolutionState;
-      swal({   
-        title: string,   
-        text: "Hi",   
-        type: "success",   
-        confirmButtonText: "^_^" 
-      });
-  };
-
-  var evoChecker = function() {
-    if (this.state.evolution !== this.state.preEvo) {
-       this.evole(state.evolution);
-       this.state.preEvo = this.state.evolution;
-    }
-  };
-   
-  var setTime = function(){
-    var newAgeDivider = this.state.age / this.state.maxAge;
-    var wholeDivider = Math.round(parseFloat(newAgeDivider.toFixed(1)));
-     // alert(state.maxDuration)
-     
-     
-    var currentEvolution = this.state.evolution;
-     
-    if ((evolution.length >= wholeDivider) && (wholeDivider > 0) && (evolution[wholeDivider]) &&(isFinite(wholeDivider))) {
-       currentEvolution = evolution[wholeDivider];
-    }  
-     this.currentTime = this.getCurrentTime();
-     this.ageDivider = wholeDivider;
-     this.evolution = currentEvolution;
-     this.disciplineChecker();
-     this.evoChecker();
-     this.egoDecreaser();
-     this.updateCurrentAge();
-     this.maxAgeDecreaser();
-     this.updateUI();
-   };
-  
-  var actOut = function(){
-    // Add acting out stuff here
-      // swal({   
-      //   title: "I'm acting out",   
-      //   text: "Boo!",   
-      //   type: "success",   
-      //   confirmButtonText: "^_^" 
-      // });
+    return query_string;
+  }();
+  var randomTweet = function(){
+      var randSeedNum = Math.floor(Math.random() * (randomtweets.length - 0 + 1)) + 0;
+      $( ".speechbubble" ).html(randomtweets[randSeedNum]);
   };
   
-  var disciplineChecker = function() {
-    var newDiscipline = this.state.discipline; 
-    if (this.state.discipline === 30) {
-     this.actOut(); 
-     newDiscipline -= 10;
-     this.state.discipline = newDiscipline
-    };
-    if (this.state.discipline === 35) {
-     this.actOut(); 
-     newDiscipline -= 10;
-     this.state.discipline = newDiscipline
-    };
-    if (this.state.discipline === 25) {
-     // act out function
-    this.actOut();
-     newDiscipline -= 5;
-     this.state.discipline = newDiscipline
-    };
-  };
-  
-  var maxAgeDecreaser = function(){
-    var newMaxAge = this.state.maxAge - 1;
-    this.state.maxAge = newMaxAge;
-  };
-   
-  var getCurrentTime = function(){
-      var currentDate = new Date();
+  var randomtweets = ['I feel we are so stuck in the booth Wow this is the God.',
+                'Be real… Don’t try to use the debt tried to use me for anything till Monday.',
+                'I feel the Grammy awarding system is designed for YEEZY Season 1.',
+                'I feel we are so stuck in the booth Wow this is the God.',
+                'This is the most powerful messenger of the life.',
+                'and I think the Grammys culturally relevant again.',
+                'you maybe talented, but you\'re not kanye west',
+                'Sometimes I get emotional over fonts',
+                'My favorite unit of measurement is \'a shitload\'',
+                'Have you ever thought you were in love with someone but then realized you were just staring in the mirror for 20 minutes?',
+                'I always misspell genius SMH! The irony!',
+                'Dear Santa Claus, tell me what gift would you like this year.'
+                ];
+                // I am ready to get out of my own way. The ego is overdone... it's like hoddies
+    $("#startscreens").removeClass('startoff');
+    $("#start1").removeClass('startoff');
+    $("#start2").removeClass('startoff');
+    $("#start3").removeClass('startoff');
+    $("#start4").removeClass('startoff');
+    $('#finalframe').hide();
+    $("#start1").show();
+    $("#start2").hide();
+    $("#start3").hide();
+    $("#start4").hide();
 
-      var finalTime = currentDate;
-      return (finalTime);
-  }; 
+    $("#startscreens").css('display', 'block');
+    $("#start1").css('display', 'block');
 
-var updateUI = function(){
-  $(".name>h1").text(this.state.age);
-  $(".create>h1").text(this.state.creativity);
-  $(".ego>h1").text(this.state.ego);
-  $(".discipline>h1").text(this.state.discipline);
+    $( "#start1" ).click(function() {
+      $("#start2").css('display', 'block');
+      $('start1').hide();
+      $("#start2").show();
+      setTimeout(function(){
+        $("#start3").css('display', 'block');
+        $('start2').hide();
+        $('start3').show();
+        setTimeout(function(){
+          $("#start4").css('display', 'block');
+          $('start4').show();
+          $('start3').hide(); 
+          setTimeout(function(){
+            randomTweet();
+            $('start4').hide();
+            $("#startscreens").hide();
+            init();
+          }, 1600);
+        }, 1600);
+      }, 1600);
+    });
 
-}
+    $( ".scriptButton1" ).click(function() {
+      // shrink head
+      if (queryString.demo) {
+        shrinkHead();
+        setTimeout(function(){
+          shrinkHead();
+        }, 1000);
+      }
 
-}); 
+    });
+    $( ".scriptButton2" ).click(function() {
+      // hate
+      if (queryString.demo) {
+        var interval;
+        interval = setInterval(makehater, 1500);
+        setTimeout(function(){
+          clearInterval(interval)
+        }, 10000);
+      }
+    });
+    $( ".scriptButton3" ).click(function() {
+      // random tweet
+      if (queryString.demo) {
+        var seednum = Math.floor(Math.random() * (randomtweets.length - 0 + 1)) + 0;
+        $( ".speechbubble" ).html(randomtweets[seednum]);
+      }
+    });
+    $( ".scriptButton4" ).click(function() {
+      // end
+      if (queryString.demo) {
+        endGame();
+      }
+    });
+
+      var randomTweetInterval;
+      randomTweetInterval = setInterval(randomTweet, 30000);
+
+});

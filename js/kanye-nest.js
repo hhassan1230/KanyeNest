@@ -1,17 +1,39 @@
 //Set up button clicks
 var indexAlbum = 0;
+var hateInterval = null;
+var intervalCount = 4000;
+var endGame = function() {
+    clearInterval(hateInterval);
+    $('#allthehaters').css('display', 'none');
+    $("#startscreens").show();
+    $("#startscreens").css('display', 'block');
+  
+    $("#start1").hide();
+    $("#start2").hide();
+    $("#start3").hide();
+    $("#start4").hide();
+
+    // finalframe
+    $("#finalframe").removeClass('startoff');
+    $("#finalframe").css('display', 'block');
+    $("#finalframe").show();  
+};
 
 $( "#egobutton" ).click(function() {
   praise();
+  generateFood('ego');
+  // raise ego
 });
 
 $( "#creativitybutton" ).click(function() {
   create();
+  generateFood('creativity');
 });
 
 $( "#disciplinebutton" ).click(function() {
   scold();
   //evolveKanye();
+  generateFood('Oprah');
 });
 
 $( ".speechbubble" ).click(function() {
@@ -110,63 +132,78 @@ function evolveKanye(){
     var albumArray = [
         {text: "You dropped another album! I'm so glad I live in the time of you!", url:'http://kanyenest.com/images/album_dropout.png', audio: 'audio/music1.wav'},
         {text: "You dropped another album! All the celeb hype only clouds how talented you are.", url:'http://kanyenest.com/images/album_life_of_pablo.png', audio: 'audio/music3.wav'},
-        {text:"You dropped another album! OMG your album is the shit!" , url:'http://kanyenest.com/images/album_808s.png', audio: 'audio/msuic2.wav'},
-        
-];
+        {text:"You dropped another album! OMG your album is the shit!" , url:'http://kanyenest.com/images/album_808s.png', audio: 'audio/msuic2.wav'}       
+    ];
     //Move kanye to the next head level
+    if (indexAlbum < albumArray.length) {
+        $('#kanyehead').children().not('.headoff').each(function(){
+            // still not working full after life of pablo
+            nextclass = $(this).next();
 
-    $('#kanyehead').children().not('.headoff').each(function(){
-        // still not working full after life of pablo
-        nextclass = $(this).next();
+            nextclass.removeClass('headoff');
 
-        nextclass.removeClass('headoff');
+            firsthead = nextclass.children().eq(2);
 
-        firsthead = nextclass.children().eq(2);
+            firsthead.removeClass('headoff');
 
-        firsthead.removeClass('headoff');
+            firsthead.show();
 
-        firsthead.show();
+            $(this).addClass('headoff');
 
-        $(this).addClass('headoff');
+            $(this).hide();
 
-        $(this).hide();
+            if($(nextclass).is(':last-child')){
 
-        if($(nextclass).is(':last-child')){
+                $("#kanyewings").removeClass("bodyoff");
 
-            $("#kanyewings").removeClass("bodyoff");
+                $("#kanyewings").show();
 
-            $("#kanyewings").show();
+            }     
 
-        }     
-
-    });
+        });
 
     //move kanye to the next body
 
-    if (indexAlbum < albumArray.length) {
+
         makeModal(albumArray[indexAlbum].text +" <img src = '"+ albumArray[indexAlbum].url+"' class='albumart'>");
+
         playSong(albumArray[indexAlbum].audio);
         indexAlbum += 1;
+    } else {
+        // win screen
+        endGame();
     }
     if(indexAlbum==2){
 
     }
 
+    if (hateInterval) {
+        hateInterval = setInterval(makehater, intervalCount);
+    } else {
+        hateInterval = setInterval(makehater, intervalCount - 1500);
+    } 
+    // start haters!
+
 }
 
 function growHead(){
-    //Grow the head 
-        // debugger;
+    //Grow the head
     $('#kanyehead').children().not('.headoff').children().not('.headoff').each(function(){
-        $(this).addClass('headoff');
-        $(this).next().removeClass('headoff');
+
+        if ($(this).next().length > 0) {
+
+            $(this).addClass('headoff');
+            $(this).next().removeClass('headoff');
+        }
     });
 }
 
 function shrinkHead(){
     $('#kanyehead').children().not('.headoff').children().not('.headoff').each(function(){
-        $(this).addClass('headoff');
-        $(this).prev().removeClass('headoff');
+        if ($(this).prev().length > 0) {
+            $(this).addClass('headoff');
+            $(this).prev().removeClass('headoff');
+        }
     });
 
 }
