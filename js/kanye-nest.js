@@ -2,6 +2,10 @@
 var indexAlbum = 0;
 var hateInterval = null;
 var intervalCount = 4000;
+var creativitydegrador = null;
+var headshrinker = null;
+var currentContainer;
+
 var endGame = function() {
     clearInterval(hateInterval);
     $('#allthehaters').css('display', 'none');
@@ -49,8 +53,10 @@ $("#close").click(function(){
 
 //Set up intervals
 //var hatermaker = setInterval(makehater, 4000);
-//var creativitydegrador = setInterval(lowerCreativity, 4500);
-//var headshrinker = setInterval(shrinkHead, 10000);
+var startShrinker = function() {
+    headshrinker = setInterval(shrinkHead, 10000);
+};
+
 
 
 //Set up tweets
@@ -59,7 +65,7 @@ var randomtweets = ['I feel we are so stuck in the booth Wow this is the God.',
                 'I feel the Grammy awarding system is designed for YEEZY Season 1.',
                 'I feel we are so stuck in the booth Wow this is the God.',
                 'This is the most powerful messenger of the life.',
-                'and I think the Grammys culturally relevant again.']
+                'and I think the Grammys culturally relevant again.'];
 
 var albumnames = ['808s', 'Dropout', 'Graduation','My Dark Twisted Fantasy'];
 var albumimages = ['images/album_808s.png.', 'images/album_dropout.png', 'images/album_graduation.png','images/album_mydark.png'];
@@ -103,6 +109,7 @@ function lowerCreativity(){
     //Lower creativity
     activebar = $(".geniusbars").not(".geniusoff");
     if($(activebar).is(':first-child')){
+        // lose condition
         makeModal('Yeezus is going on the Kardashians!');
         
     }else{
@@ -134,6 +141,9 @@ function evolveKanye(){
         {text: "You dropped another album! All the celeb hype only clouds how talented you are.", url:'http://kanyenest.com/images/album_life_of_pablo.png', audio: 'audio/music3.wav'},
         {text:"You dropped another album! OMG your album is the shit!" , url:'http://kanyenest.com/images/album_808s.png', audio: 'audio/msuic2.wav'}       
     ];
+    if (!creativitydegrador) {
+        creativitydegrador = setInterval(lowerCreativity, 6500);
+    }
     //Move kanye to the next head level
     if (indexAlbum < albumArray.length) {
         $('#kanyehead').children().not('.headoff').each(function(){
@@ -243,12 +253,21 @@ function create(){
 }
 
 function scold(){
-    $( ".speechbubble" ).html("Sorry Tay Tay, but...");
+    var sorry = {title:"<a class='giflink-to-be' data-src='./img/awesome.gif'> Sorry </a>", url:"http://media2.giphy.com/media/112crUE5VLqHp6/giphy.gif"};
+    $( ".speechbubble" ).html(sorry.title);
+    $('.giflink-to-be').attr('data-src', sorry.url);
+    var element = document.querySelector( '.giflink-to-be' );
+    GifLinks( element );
     //activateDemo();
     //makeModal("Jay Leno asked what your mom would think of your behavior?");
 
 
 }
+
+function stopGif(container) {
+    container.style[ 'display' ] = 'none';
+    container.style[ 'backgroundImage' ] = '';
+  }
 
 function activateDemo(){
     var hatermaker = setInterval(makehater, 5283);

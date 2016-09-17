@@ -22,8 +22,11 @@ $( document ).ready(function() {
     return query_string;
   }();
   var randomTweet = function(){
-      var randSeedNum = Math.floor(Math.random() * (randomtweets.length - 0 + 1)) + 0;
-      $( ".speechbubble" ).html(randomtweets[randSeedNum]);
+    if (currentContainer) {
+      stopGif(currentContainer);
+    }
+    var randSeedNum = Math.floor(Math.random() * (randomtweets.length - 0 + 1)) + 0;
+    $( ".speechbubble" ).html(randomtweets[randSeedNum]);
   };
   
   var randomtweets = ['I feel we are so stuck in the booth Wow this is the God.',

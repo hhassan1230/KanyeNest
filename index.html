@@ -29,6 +29,7 @@
   </head>
 
   <body>
+  <!-- start #dev test div Take Out in Prod!-->
   <div class="dev-test">
     <div class="ego-stat">
       <p>Kanye's Ego {0}</p>
@@ -40,6 +41,7 @@
       <p>Kanye's Discipline {0}</p>
     </div>
   </div>
+  <!-- end #dev test div -->
     <div class="scriptButton1" id="fixed-div">
 
   </div>
@@ -63,7 +65,7 @@
       <div id="start2"  class="startoff"> <img src="./images/opening_1.png" width="375"></div>
       <div id="start3"  class="startoff"> <img src="./images/opening_2.png" width="375"></div>
       <div id="start4"  class="startoff"> <img src="./images/opening_3.png" width="375"></div>
-        <div id="finalframe"  class="startoff"> <img src="./images/Final.jpg" width="375"></div>
+      <div id="finalframe"  class="startoff" onclick="location.reload();"> <img src="./images/Final.jpg" width="375"></div>
     </div>
     <div id="actionoverlays" class="">
         <div id="overlaygreyout"></div>
@@ -84,7 +86,7 @@
           <div class="geniusbars bar3 geniusoff"> <img src="./images/bar_3.png" width="180">  </div>
           <div class="geniusbars bar4 geniusoff"> <img src="./images/bar_4.png" width="180">  </div>
           <div class="geniusbars bar5 geniusoff"> <img src="./images/bar_5.png" width="180">  </div>
-      </div>  <!-- end #geniusbarholder
+      </div>  <!-- end #geniusbarholder -->
       <!-- end #logoheader --> 
     <div id="kanyeoverlay">  <!-- stuff overtop of kanye animations -->
       
@@ -180,6 +182,7 @@
     
     
   </body>
+  <script src="./js/giflinks.js"></script>
   <script src="./js/kanye-nest.js"></script>
   <script src="./js/kanyeManager.js"></script>
   <script src="./js/gameManager.js"></script>
