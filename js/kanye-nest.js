@@ -2,6 +2,7 @@
 var indexAlbum = 0;
 var hateInterval = null;
 var intervalCount = 4000;
+var creativeIntervalCount = 6500;
 var creativitydegrador = null;
 var headshrinker = null;
 var currentContainer;
@@ -41,10 +42,16 @@ $( "#disciplinebutton" ).click(function() {
 });
 
 $( ".speechbubble" ).click(function() {
+
+
+
+
+    // scolding start
+
     tweet();
 });
 
-$( ".hater" ).click(function() {
+$( ".hater" ).mousedown(function() {
     $(this).addClass("hateroff");
 });
 $("#close").click(function(){
@@ -82,14 +89,19 @@ function albumdrop(){
     albumCounter = albumCounter+1;
 }
 
-function randomtweet(){
-    seednum = Math.round(Math.random() * randomtweets.length);
+function randomtweetNest(){
+    seednum = Math.floor(Math.random() * (randomtweets.length - 0 + 1)) + 0;
 
     $( ".speechbubble" ).html(randomtweets[seednum]);
 }
 
 function tweet(){
-    $( ".speechbubble" ).html("I feel like me and Taylor might still have sex, Why? I made that bitch famous.");
+    var headsOrTails = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+    if (headsOrTails === 2) {
+        $( ".speechbubble" ).html("I feel like me and Taylor might still have sex, Why? I made that bitch famous.");
+    } else {
+        randomtweetNest();
+    }
 };
     
 
@@ -142,12 +154,15 @@ function evolveKanye(){
         {text:"You dropped another album! OMG your album is the shit!" , url:'http://kanyenest.com/images/album_808s.png', audio: 'audio/msuic2.wav'}       
     ];
     if (!creativitydegrador) {
-        creativitydegrador = setInterval(lowerCreativity, 6500);
+        creativitydegrador = setInterval(lowerCreativity, creativeIntervalCount);
+    } else {
+        creativitydegrador = setInterval(lowerCreativity, creativeIntervalCount - 500);
     }
     //Move kanye to the next head level
     if (indexAlbum < albumArray.length) {
         $('#kanyehead').children().not('.headoff').each(function(){
             // still not working full after life of pablo
+            // kanyewings
             nextclass = $(this).next();
 
             nextclass.removeClass('headoff');
@@ -183,8 +198,9 @@ function evolveKanye(){
         // win screen
         endGame();
     }
-    if(indexAlbum==2){
-
+    if(indexAlbum === 3){
+        $('#kanyewings').removeClass('bodyoff');
+        $('#kanyewings>img').removeClass('bodyoff');
     }
 
     if (hateInterval) {
@@ -193,7 +209,6 @@ function evolveKanye(){
         hateInterval = setInterval(makehater, intervalCount - 1500);
     } 
     // start haters!
-
 }
 
 function growHead(){

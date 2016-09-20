@@ -21,6 +21,16 @@ $( document ).ready(function() {
     } 
     return query_string;
   }();
+  var removeDemoDivs = function(){
+    if (!queryString.demo) {
+      $( ".scriptButton1" ).remove();
+      $( ".scriptButton2" ).remove();
+      $( ".scriptButton3" ).remove();
+      $( ".scriptButton4" ).remove();
+      $( ".dev-test" ).remove();
+    }
+  };
+
   var randomTweet = function(){
     if (currentContainer) {
       stopGif(currentContainer);
@@ -43,6 +53,7 @@ $( document ).ready(function() {
                 'Dear Santa Claus, tell me what gift would you like this year.'
                 ];
                 // I am ready to get out of my own way. The ego is overdone... it's like hoddies
+    removeDemoDivs();
     $("#startscreens").removeClass('startoff');
     $("#start1").removeClass('startoff');
     $("#start2").removeClass('startoff');

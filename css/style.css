@@ -270,6 +270,7 @@ body {
 
 	
 #allthehaters {
+	
   display: block;
   position: absolute;
   width: 100%;
@@ -283,6 +284,7 @@ body {
     100% {left:-170px; top:237px;}
 }
 .hater1 {
+	
   display:block;	
   position: absolute;
   top:-170px;
@@ -290,12 +292,14 @@ body {
 
 }
 .hater2 {
+	
   display:block;
   position: absolute; 	
   top:-255px;
   left:237px;
 }
 .hater3 {
+	
   display:block;
   position: absolute; 	
   top:-340px;
@@ -303,6 +307,7 @@ body {
 }
 
 .hater4 {
+	
   display:block;
   position: absolute; 	
   top:-350px;
@@ -310,6 +315,7 @@ body {
   transform:scaleX(-1)
 }
 .hater5 {
+	
   display:block;
   position: absolute; 	
   top:-265px;
@@ -317,6 +323,7 @@ body {
   transform:scaleX(-1)
 } 
 .hater6 {
+	
   display:block;
   position: absolute; 	
   top:-175px;
@@ -324,6 +331,7 @@ body {
   transform:scaleX(-1)
 }
 .hateroff{
+	
 	display:none;
 	}
 
@@ -542,4 +550,12 @@ img.albumart{
 .giflink-to-be{
 		color: rgb(245, 90, 3);
 		font-style: italic;
+}
+.noSelect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
