@@ -36,6 +36,10 @@ $( "#creativitybutton" ).click(function() {
 });
 
 $( "#disciplinebutton" ).click(function() {
+  // play smack!!!
+  // Math.random() * (max - min) + min;
+  var currentSmack = "slap"+ Math.floor((Math.random() * 11) + 1);
+  playSong("audio/slaps/"+ currentSmack +".mp3");
   scold();
   //evolveKanye();
   generateFood('Oprah');
