@@ -1,3 +1,8 @@
+String.prototype.capitalize = function(allWords) {
+   return (allWords) ? // if all words
+      this.split(' ').map(word => word.capitalize()).join(' ') : //break down phrase to words then  recursive calls until capitalizing all words
+      this.charAt(0).toUpperCase() + this.slice(1); // if allWords is undefined , capitalize only the first word , mean the first char of the whole string
+}
 //Set up button clicks
 var indexAlbum = 0;
 var hateInterval = null;
@@ -18,11 +23,56 @@ var endGame = function() {
     $("#start3").hide();
     $("#start4").hide();
 
+
     // finalframe
-    $("#finalframe").removeClass('startoff');
-    $("#finalframe").css('display', 'block');
-    $("#finalframe").show();  
+    $("#finalframe1").removeClass('startoff');
+    $("#finalframe1").css('display', 'block');
+    $("#finalframe1").show();  
+
+    pickEnding();
 };
+
+var pickEnding = function(){
+    // 1 - 3 random
+    var endings = ['good', 'bad', 'ego'];
+    // Math.floor((Math.random() * 3) + 1)
+    // choose ending on that randomness
+    var ending = endings[Math.floor(Math.random()*endings.length)];
+    // change imags to winning picker
+    if (ending !== 'good') {
+       var path = 'images/'+ending+'/';
+       $('#finalframe2').children().attr('src', path+ending.capitalize()+'1.png'); 
+       $('#finalframe3').children().attr('src', path+ending.capitalize()+'1text.jpg'); 
+       $('#finalframe4').children().attr('src', path+ending.capitalize()+'2.png'); 
+       $('#finalframe5').children().attr('src', path+ending.capitalize()+'2text.jpg'); 
+    }
+    // start set time outs
+      setTimeout(function(){
+        $("#finalframe2").css('display', 'block');
+        $("#finalframe2").show();
+        $('#finalframe1').hide();
+        setTimeout(function(){
+          $("#finalframe3").css('display', 'block');
+          $('#finalframe3').show();
+          $('#finalframe2').hide();
+          setTimeout(function(){
+            $("#finalframe4").css('display', 'block');
+            $('#finalframe4').show();
+            $('#finalframe3').hide(); 
+            setTimeout(function(){
+                $("#finalframe5").css('display', 'block');
+                $('#finalframe5').show();
+                $('#finalframe4').hide();
+                setTimeout(function(){
+                    $("#finalframe").removeClass('startoff');
+                    $("#finalframe").css('display', 'block');
+                    $("#finalframe").show();
+                }, 4000);
+            }, 1600);
+          }, 4000);
+        }, 1600);
+      }, 1600); 
+}
 
 $( "#egobutton" ).click(function() {
   praise();
@@ -126,7 +176,9 @@ function lowerCreativity(){
     activebar = $(".geniusbars").not(".geniusoff");
     if($(activebar).is(':first-child')){
         // lose condition
-        makeModal('Yeezus is going on the Kardashians!');
+
+        makeModal("Yeezus is going on the Kardashians! <img src ='images/Kardashiansmodel.jpg' class='albumart kar'>");
+        // makeModal('Yeezus is going on the Kardashians!');
         
     }else{
         $(activebar).prev().removeClass("geniusoff");

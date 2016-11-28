@@ -60,6 +60,16 @@ $( document ).ready(function() {
     $("#start3").removeClass('startoff');
     $("#start4").removeClass('startoff');
     $('#finalframe').hide();
+    $('#finalframe1').hide();
+
+    $('#finalframe2').hide();
+    $('#finalframe3').hide();
+    $('#finalframe4').hide();
+    $('#finalframe5').hide();
+
+    $('#tutorial').hide();
+
+
     $("#start1").show();
     $("#start2").hide();
     $("#start3").hide();
@@ -69,22 +79,28 @@ $( document ).ready(function() {
     $("#start1").css('display', 'block');
 
     $( "#start1" ).click(function() {
-      $("#start2").css('display', 'block');
-      $('start1').hide();
-      $("#start2").show();
+      $("#tutorial").css('display', 'block');
+      $('#tutorial').show();
+      $('#start1').hide();
+      
       setTimeout(function(){
-        $("#start3").css('display', 'block');
-        $('start2').hide();
-        $('start3').show();
+        $("#start2").css('display', 'block');
+        $("#start2").show();
+        $('#tutorial').hide();
         setTimeout(function(){
-          $("#start4").css('display', 'block');
-          $('start4').show();
-          $('start3').hide(); 
+          $("#start3").css('display', 'block');
+          $('#start3').show();
+          $('#start2').hide();
           setTimeout(function(){
-            randomTweet();
-            $('start4').hide();
-            $("#startscreens").hide();
-            init();
+            $("#start4").css('display', 'block');
+            $('#start4').show();
+            $('#start3').hide(); 
+            setTimeout(function(){
+              $('#start4').hide();
+              $("#startscreens").hide();
+              randomTweet();
+              init();
+            }, 1600);
           }, 1600);
         }, 1600);
       }, 1600);

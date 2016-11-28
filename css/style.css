@@ -456,6 +456,11 @@ img.albumart{
 	left: 0px;
 	}
 
+img.kar {
+	width: 325px;
+	top: 150px;
+}	
+
 .modalimage{
 	position:absolute;
 	display:block;
