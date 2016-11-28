@@ -130,7 +130,7 @@ var startShrinker = function() {
 var spaceOutCreativity = function(){
     setTimeout(function(){
         breatherSpace = true;
-    }, 1000);
+    }, 1500);
 };
 
 //Set up tweets
