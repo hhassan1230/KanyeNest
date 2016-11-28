@@ -4,6 +4,7 @@ String.prototype.capitalize = function(allWords) {
       this.charAt(0).toUpperCase() + this.slice(1); // if allWords is undefined , capitalize only the first word , mean the first char of the whole string
 }
 //Set up button clicks
+var creativityWait = ["Let a God breath! (Kanye may need some discipline)", "I Don’t need to work on creativity - I'm a God (discipline that boy!)", "Nah son, I'm plowing Kim right now", "Working on my clothing line right now (Kanye may need a backhand)", "(Kanye ignores your orders and commands you to buy more ablums before he obeys)"]; 
 var indexAlbum = 0;
 var hateInterval = null;
 var intervalCount = 4000;
@@ -11,6 +12,8 @@ var creativeIntervalCount = 6500;
 var creativitydegrador = null;
 var headshrinker = null;
 var currentContainer;
+var breatherSpace = true;
+
 
 var endGame = function() {
     clearInterval(hateInterval);
@@ -81,8 +84,14 @@ $( "#egobutton" ).click(function() {
 });
 
 $( "#creativitybutton" ).click(function() {
-  create();
-  generateFood('creativity');
+    if (breatherSpace) {
+      create();
+      generateFood('creativity');
+      breatherSpace = false;
+      spaceOutCreativity();
+    } else {
+        $( ".speechbubble" ).html(creativityWait[Math.floor(Math.random()*creativityWait.length)]);
+    }
 });
 
 $( "#disciplinebutton" ).click(function() {
@@ -118,7 +127,11 @@ var startShrinker = function() {
     headshrinker = setInterval(shrinkHead, 10000);
 };
 
-
+var spaceOutCreativity = function(){
+    setTimeout(function(){
+        breatherSpace = true;
+    }, 1000);
+};
 
 //Set up tweets
 var randomtweets = ['I feel we are so stuck in the booth Wow this is the God.',
