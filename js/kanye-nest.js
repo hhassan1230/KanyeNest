@@ -42,6 +42,10 @@ var pickEnding = function(){
     // choose ending on that randomness
     var ending = endings[Math.floor(Math.random()*endings.length)];
     // change imags to winning picker
+    playSong("audio/" + ending + ".wav");
+
+
+
     if (ending !== 'good') {
        var path = 'images/'+ending+'/';
        $('#finalframe2').children().attr('src', path+ending.capitalize()+'1.png'); 
@@ -78,12 +82,16 @@ var pickEnding = function(){
 }
 
 $( "#egobutton" ).click(function() {
+  playSong("audio/UI_Click.wav");
+
   praise();
   generateFood('ego');
   // raise ego
 });
 
 $( "#creativitybutton" ).click(function() {
+    playSong("audio/UI_Click.wav");
+
     if (breatherSpace) {
       create();
       generateFood('creativity');
@@ -115,6 +123,9 @@ $( ".speechbubble" ).click(function() {
 });
 
 $( ".hater" ).mousedown(function() {
+    var currentwack = Math.floor((Math.random() * 4) + 1);
+
+    playSong("audio/handSmack/" + currentwack + ".wav");
     $(this).addClass("hateroff");
 });
 $("#close").click(function(){
@@ -130,7 +141,7 @@ var startShrinker = function() {
 var spaceOutCreativity = function(){
     setTimeout(function(){
         breatherSpace = true;
-    }, 1500);
+    }, 500);
 };
 
 //Set up tweets
